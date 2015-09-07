@@ -1,0 +1,115 @@
+﻿<Window x:Class="WPF3DSample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF3DSample"
+        xmlns:tdTools="clr-namespace:_3DTools;assembly=3DTools"
+        mc:Ignorable="d"
+        
+        Title="MainWindow" Height="350" Width="525">
+
+    <!--<Grid Background="Black" MouseWheel="Grid_MouseWheel">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Button x:Name="button" Grid.Row="0" Content="Reset" />
+
+        <Viewport3D x:Name="viewport" Grid.Row="1">
+            <tdTools:tdTools:ScreenSpaceLines3D Color="Red" Thickness="40">
+                <tdTools:tdTools:ScreenSpaceLines3D.Points>
+                    <Point3D X="0" Y="0" Z="0" />
+                    <Point3D X="5" Y="5" Z="0" />
+                    <Point3D X="10" Y=" 10" Z="0" />
+                    <Point3D X="20" Y="20" Z="0" />
+                    <Point3D X="30" Y="30" Z="0" />
+                    <Point3D X="40" Y="40" Z="0" />
+                    <Point3D X="50" Y="50" Z="0" />
+                </tdTools:tdTools:ScreenSpaceLines3D.Points>
+            </tdTools:tdTools:ScreenSpaceLines3D>
+            <Viewport3D.Camera>
+                <PerspectiveCamera x:Name="camera" 
+                                   FarPlaneDistance="50"
+                                   NearPlaneDistance="0" 
+                                   LookDirection="0,0,-10" 
+                                   UpDirection="0,1,0"                   
+                                   Position="0,0,5" 
+                                   FieldOfView="45" />
+                
+            </Viewport3D.Camera>
+        </Viewport3D>
+    </Grid>-->
+
+    <Grid Background="Black" PreviewMouseWheel="Grid_MouseWheel" MouseWheel="Grid_MouseWheel" MouseDown="Grid_MouseDown" MouseUp="Grid_MouseUp" MouseMove="Grid_MouseMove">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Viewport3D Name="viewport" Grid.Row="1">
+            <Viewport3D.Camera>
+                <PerspectiveCamera x:Name="camera"  FarPlaneDistance="100" LookDirection="0,0,-10" UpDirection="0,1,0" NearPlaneDistance=".1" Position=".5,.5,1" FieldOfView="45"/>
+            </Viewport3D.Camera>
+            <!--<ModelVisual3D>
+                <ModelVisual3D.Content>
+                    <Model3DGroup>
+                        <Model3DGroup.Children>-->
+                            <!-- Add a red screen space line to represent the x axis. -->
+                            <tdTools:ScreenSpaceLines3D
+                    Color="Red"
+                    Thickness="2.0"
+                    Points="20.0, 0.0, 0.0, -20.0, 0.0, 0.0"
+                    />
+                            <!-- Add a green screen space line to represent the y axis. -->
+                            <tdTools:ScreenSpaceLines3D
+                    Color="Green"
+                    Thickness="2.0"
+                    Points="0.0, 20.0, 0.0, 0.0, -20.0, 0.0"
+                    />
+                            <!-- Add a blue screen space line to represent the z axis. -->
+                            <tdTools:ScreenSpaceLines3D
+                    Color="Blue"
+                    Thickness="2.0"
+                    Points="0.0, 0.0, 20.0, 0.0, 0.0, -20.0"
+                    />
+                            <!--Add lines to build pyramid-->
+                            <tdTools:ScreenSpaceLines3D
+                    Color="White"
+                    Thickness="4.0"
+                    Points="0, 0.1, 0.0, .1, 0.0, .1   "
+                    />
+                            <tdTools:ScreenSpaceLines3D
+                    Color="White"
+                    Thickness="4.0"
+                    Points="0, 0.1, 0.0, -.1, 0.0, -.1"
+                    />
+                            <tdTools:ScreenSpaceLines3D
+                    Color="White"
+                    Thickness="4.0"
+                    Points="0, 0.1, 0.0, .1, 0.0, -.1"
+                    />
+                            <tdTools:ScreenSpaceLines3D
+                    Color="White"
+                    Thickness="4.0"
+                    Points="0, 0.1, 0.0, -.1, 0.0, .1"
+                    />
+                            <tdTools:ScreenSpaceLines3D
+                    Color="White"
+                    Thickness="4.0"
+                    Points=".1, 0.0, .1, 
+                            -.1, 0.0, .1,
+                            -.1, 0.0, -.1,
+                            .1, 0.0, -.1,
+                            .1, 0.0, .1
+
+                     "
+                    />
+                        <!--</Model3DGroup.Children>
+                    </Model3DGroup>
+                </ModelVisual3D.Content>
+            </ModelVisual3D>-->
+
+        </Viewport3D>
+    </Grid>
+</Window>
